@@ -1,0 +1,20 @@
+.fade {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: fadeout;
+}
+
+.fade.long {
+    animation-duration: 5s;
+}
+
+@keyframes fadeout {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

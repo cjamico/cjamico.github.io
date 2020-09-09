@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Evolve Idle Cheater!</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulma-prefers-dark" />
+  <script src="lz-string.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <section class="section">
+    <div class="container">
+      <h1>Evolve Incremental Save Cheater</h1>
+      <form onsubmit="event.preventDefault()">
+        <div class="columns">
+          <div class="column">
+            <textarea rows="42" class="textarea has-fixed-size is-small" id="dataArea" autocomplete="off"
+              autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Save data here"></textarea>
+          </div> <!--end column-->
+          <div class="column">
+            <div class="buttons">
+              <button class="button is-danger is-light is-small" id="clearBtn">Clear All</button>
+              <button class="button is-info is-light is-small" id="allBtn" title="Doesn't change Govt type">Execute All</button>
+            </div>
+            <div class="buttons">
+              <button class="button" id="pasteBtn">Paste from Clipboard?</button>
+              <button class="button" id="copyBtn">Copy to Clipboard</button>
+              <h6 class="subtitle is-6" id="clipboardStatus"></h6>
+            </div>
+            <div class="buttons has-addons">
+              <button class="button is-primary is-light" id="decodeBtn">De-</button>
+              <button class="button is-light" disabled>code</button>
+              <button class="button is-info is-light" id="encodeBtn">En-</button>
+            </div>
+            <hr />
+            <div class="field" id="buildingCheat">
+              <label class="label">Add Buildings</label>
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="minBuildings" value="2" checked>
+                  Require at least 2
+                </label>
+                <label class="radio">
+                  <input type="radio" name="minBuildings" value="1">
+                  Require at least 1
+                </label>
+              </div>
+              <div class="control">
+                <label class="radio">
+                  <input type="radio" name="unlessAlready" value="0" checked>
+                  Unless already &gt;9
+                </label>
+                <label class="radio">
+                  <input type="radio" name="unlessAlready" value="1">
+                  &gt;99
+                </label>
+                <label class="radio">
+                  <input type="radio" name="unlessAlready" value="2">
+                  &gt;999
+                </label>
+              </div>
+              <div class="control">
+                <label class="checkbox">
+                  <input type="checkbox" id="allOn">
+                  Toggle all 'On'
+                </label>
+              </div>
+              <br />
+              <div class="select">
+                <select id="buildingSelect">
+                  <option value="500">500</option>
+                  <option value="300">300</option>
+                  <option value="100">100</option>
+                  <option value="50">50</option>
+                </select>
+              </div>
+              <button class="button is-warning is-light" id="buildingCheatBtn">Do it</button>
+            </div>
+            <hr />
+            <div class="columns nested">
+              <div class="column nested">
+                <div class="field" id="valueCheat">
+                  <label class="label">Change Resource Quantities</label>
+                  <div class="select">
+                    <select id="valueSelect">
+                      <option value="5000000000">5G</option>
+                      <option value="5000000">5M</option>
+                      <option value="5000">5K</option>
+                    </select>
+                  </div>
+                  <button class="button is-warning is-light" id="valueCheatBtn">Ooooh</button>
+                  <button class="button is-warning is-light" id="valueMaxCheatBtn">Max</button>
+                </div>
+              </div> <!--end nested column-->
+              <div class="column">
+                <div class="field" id="craftCheat">
+                  <label class="label">(Arts and) Crafting Supplies</label>
+                  <button class="button is-warning is-light" id="craftCheatBtn">Get lots</button>
+                </div>
+              </div>  <!--end nested column-->
+            </div> <!--end nested columns-->
+            <hr />
+            <div class="columns nested">
+              <div class="column nested">
+                <div class="field" id="madCheat">
+                  <label class="label">Mutual Assured Destruction</label>
+                  <button class="button is-warning is-light" id="madCheatBtn">Activate</button>
+                </div>
+              </div> <!--end nested column-->
+              <div class="column">
+                <div class="field" id="govCheat">
+                  <label class="label">Reduce Gov't Opposition</label>
+                  <button class="button is-warning is-light" id="govCheatBtn">Risk&trade; it</button>
+                </div>
+              </div> <!--end nested column-->
+            </div> <!--end nested columns-->
+            <hr />
+            <div class="columns nested">
+              <div class="column nested">
+                <div class="field" id="coupCheat">
+                  <label class="label">Overthrow the Gov't</label>
+                  <div class="select">
+                    <select id="coupSelect">
+                      <option value="anarchy">Anarchy</option>
+                      <option value="autocracy">Autocracy</option>
+                      <option value="democracy">Democracy</option>
+                      <option value="oligarchy">Oligarchy</option>
+                      <option value="theocracy">Theocracy</option>
+                      <option value="republic">Republic</option>
+                      <option value="socialist">Socialist</option>
+                      <option value="corpocracy">Corpocracy</option>
+                      <option value="technocracy">Technocracy</option>
+                      <option value="federation">Federation</option>
+                    </select>
+                  </div>
+                  <button class="button is-warning is-light" id="coupCheatBtn">coup d'état</button>
+                </div>
+              </div> <!--end nested column-->
+            </div> <!--end nested columns-->            
+          </div> <!--end column-->
+        </div> <!--end columns-->
+      </form>
+    </div> <!--end container-->
+  </section>
+  <script>
+    load(document.getElementById("dataArea"));
+
+    document.addEventListener('error', function(error){
+     reportError(error);
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", function () {
+        clearArea();
+    }, false);
+
+    document.getElementById("allBtn").addEventListener("click", function () {
+        runAll();
+    }, false);
+
+    document.getElementById("decodeBtn").addEventListener("click", function () {
+        decodeArea();
+    }, false);
+
+    document.getElementById("encodeBtn").addEventListener("click", function () {
+        encodeArea();
+    }, false);
+
+    document.getElementById("pasteBtn").addEventListener("click", function () {
+        pasteClipboard();
+    }, false);
+
+    document.getElementById("copyBtn").addEventListener("click", function () {
+        copyClipboard();
+    }, false);
+
+    document.getElementById("buildingCheatBtn").addEventListener("click", function () {
+        buildCheat();
+    }, false);
+
+    document.getElementById("valueCheatBtn").addEventListener("click", function () {
+        valueCheat();
+    }, false);
+
+    document.getElementById("valueMaxCheatBtn").addEventListener("click", function () {
+        valueMaxCheat();
+    }, false);
+
+    document.getElementById("madCheatBtn").addEventListener("click", function () {
+        madCheat();
+    }, false);
+
+    document.getElementById("govCheatBtn").addEventListener("click", function () {
+        govCheat();
+    }, false);
+
+    document.getElementById("craftCheatBtn").addEventListener("click", function () {
+        craftCheat();
+    }, false);
+
+    document.getElementById("coupCheatBtn").addEventListener("click", function () {
+        coupCheat();
+    }, false);
+  </script>
+</body>
+
+</html>
