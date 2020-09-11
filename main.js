@@ -22,6 +22,7 @@ function runAll() {
             valueCheat();
             valueMaxCheat();
             craftCheat();
+            swarmCheat();
             madCheat();
             govCheat();
             encodeArea();
@@ -166,6 +167,16 @@ function coupCheat() {
     let govType = valSel.options[valSel.selectedIndex].value;
 
     jdata.civic.govern.type = govType;
+
+    putJSONInTextarea(jdata);
+}
+
+function swarmCheat() {
+    let jdata = getTextareaAsJSON();
+
+    if(jdata.space.swarm_control) {
+        jdata.space.swarm_satellite.count = jdata.space.swarm_control.s_max;
+    }
 
     putJSONInTextarea(jdata);
 }

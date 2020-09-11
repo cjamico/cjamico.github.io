@@ -122,6 +122,12 @@
             <hr />
             <div class="columns nested">
               <div class="column nested">
+                <div class="field" id="swarmCheat">
+                  <label class="label">Form the Swarm</label>
+                  <button class="button is-warning is-light" id="swarmCheatBtn">Buzz</button>
+                </div>
+              </div>
+              <div class="column nested">
                 <div class="field" id="coupCheat">
                   <label class="label">Overthrow the Gov't</label>
                   <div class="select">
@@ -204,6 +210,10 @@
 
     document.getElementById("coupCheatBtn").addEventListener("click", function () {
         coupCheat();
+    }, false);
+
+    document.getElementById("swarmCheatBtn").addEventListener("click", function () {
+        swarmCheat();
     }, false);
   </script>
 </body>
