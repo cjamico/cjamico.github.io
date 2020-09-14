@@ -175,7 +175,7 @@ function coupCheat() {
 function swarmCheat() {
     let jdata = getTextareaAsJSON();
 
-    if(jdata.space.swarm_control) {
+    if(jdata.space.swarm_satellite) {
         jdata.space.swarm_satellite.count = jdata.space.swarm_control.s_max;
     }
 
