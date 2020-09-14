@@ -25,6 +25,7 @@ function runAll() {
             swarmCheat();
             madCheat();
             govCheat();
+            garrisonCheat();
             encodeArea();
             copyClipboard();
         });
@@ -177,6 +178,14 @@ function swarmCheat() {
     if(jdata.space.swarm_control) {
         jdata.space.swarm_satellite.count = jdata.space.swarm_control.s_max;
     }
+
+    putJSONInTextarea(jdata);
+}
+
+function garrisonCheat() {
+    let jdata = getTextareaAsJSON();
+
+    jdata.civic.garrison.workers = jdata.civic.garrison.max;
 
     putJSONInTextarea(jdata);
 }

@@ -17,12 +17,12 @@
     <div class="container">
       <h1>Evolve Incremental Save Cheater</h1>
       <form onsubmit="event.preventDefault()">
-        <div class="columns">
-          <div class="column">
+        <div class="columns" name="page-columns">
+          <div class="column is-one-third" name="main-left-column">
             <textarea rows="42" class="textarea has-fixed-size is-small" id="dataArea" autocomplete="off"
               autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Save data here"></textarea>
-          </div> <!--end column-->
-          <div class="column">
+          </div> <!--end main-left-column-->
+          <div class="column" name="main-right-column">
             <div class="buttons">
               <button class="button is-danger is-light is-small" id="clearBtn">Clear All</button>
               <button class="button is-info is-light is-small" id="allBtn" title="Doesn't change Govt type">Execute All</button>
@@ -33,59 +33,63 @@
               <h6 class="subtitle is-6" id="clipboardStatus"></h6>
             </div>
             <div class="buttons has-addons">
-              <button class="button is-primary is-light" id="decodeBtn">De-</button>
+              <button class="button is-primary is-light" id="decodeBtn" title="Decode">De-</button>
               <button class="button is-light" disabled>code</button>
-              <button class="button is-info is-light" id="encodeBtn">En-</button>
+              <button class="button is-info is-light" id="encodeBtn" title="Encode">En-</button>
             </div>
             <hr />
-            <div class="field" id="buildingCheat">
-              <label class="label">Add Buildings</label>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="minBuildings" value="2" checked>
-                  Require at least 2
-                </label>
-                <label class="radio">
-                  <input type="radio" name="minBuildings" value="1">
-                  Require at least 1
-                </label>
-              </div>
-              <div class="control">
-                <label class="radio">
-                  <input type="radio" name="unlessAlready" value="0" checked>
-                  Unless already &gt;9
-                </label>
-                <label class="radio">
-                  <input type="radio" name="unlessAlready" value="1">
-                  &gt;99
-                </label>
-                <label class="radio">
-                  <input type="radio" name="unlessAlready" value="2">
-                  &gt;999
-                </label>
-              </div>
-              <div class="control">
-                <label class="checkbox">
-                  <input type="checkbox" id="allOn">
-                  Toggle all 'On'
-                </label>
-              </div>
-              <br />
-              <div class="select">
-                <select id="buildingSelect">
-                  <option value="500">500</option>
-                  <option value="300">300</option>
-                  <option value="100">100</option>
-                  <option value="50">50</option>
-                </select>
-              </div>
-              <button class="button is-warning is-light" id="buildingCheatBtn">Do it</button>
-            </div>
+            <div class="columns nested" name="nested-columns-0">
+              <div class="column nested" name="nested-left-column-0">
+                <div class="field" id="buildingCheat">
+                  <label class="label" title="Select upper & lower bounds">Add Buildings</label>
+                  <div class="control">
+                    <label class="radio">
+                      <input type="radio" name="minBuildings" value="2" checked>
+                      Require at least 2
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="minBuildings" value="1">
+                      at least 1
+                    </label>
+                  </div>
+                  <div class="control">
+                    <label class="radio">
+                      <input type="radio" name="unlessAlready" value="0" checked>
+                      Unless already &gt;9
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="unlessAlready" value="1">
+                      &gt;99
+                    </label>
+                    <label class="radio">
+                      <input type="radio" name="unlessAlready" value="2">
+                      &gt;999
+                    </label>
+                  </div>
+                  <div class="control">
+                    <label class="checkbox">
+                      <input type="checkbox" id="allOn">
+                      Toggle all 'On'
+                    </label>
+                  </div>
+                  <br />
+                  <div class="select">
+                    <select id="buildingSelect">
+                      <option value="500">500</option>
+                      <option value="300">300</option>
+                      <option value="100">100</option>
+                      <option value="50">50</option>
+                    </select>
+                  </div>
+                  <button class="button is-warning is-light" id="buildingCheatBtn" title="Get selected amount of buildings, if within bounds">Do it</button>
+                </div>
+              </div> <!--end nested-left-column-0-->
+            </div> <!--end nested-columns-0-->
             <hr />
-            <div class="columns nested">
-              <div class="column nested">
+            <div class="columns nested" name="nested-columns-1">
+              <div class="column nested" name="nested-left-column-1">
                 <div class="field" id="valueCheat">
-                  <label class="label">Change Resource Quantities</label>
+                  <label class="label" title="for resources with at least 1">Change Resource Quantities</label>
                   <div class="select">
                     <select id="valueSelect">
                       <option value="5000000000">5G</option>
@@ -93,41 +97,41 @@
                       <option value="5000">5K</option>
                     </select>
                   </div>
-                  <button class="button is-warning is-light" id="valueCheatBtn">Ooooh</button>
-                  <button class="button is-warning is-light" id="valueMaxCheatBtn">Max</button>
+                  <button class="button is-warning is-light" id="valueCheatBtn" title="Get selected amount">Ooooh</button>
+                  <button class="button is-warning is-light" id="valueMaxCheatBtn" title="Get max allowed">Max</button>
                 </div>
-              </div> <!--end nested column-->
-              <div class="column">
+              </div> <!--end nested-left-column-1-->
+              <div class="column nested" name="nested-right-column-1">
                 <div class="field" id="craftCheat">
                   <label class="label">(Arts and) Crafting Supplies</label>
-                  <button class="button is-warning is-light" id="craftCheatBtn">Get lots</button>
+                  <button class="button is-warning is-light" id="craftCheatBtn" title="Get 5G of each craftable">Get lots</button>
                 </div>
-              </div>  <!--end nested column-->
-            </div> <!--end nested columns-->
+              </div>  <!--end nested-right-column-1-->
+            </div> <!--end nested-columns-1-->
             <hr />
-            <div class="columns nested">
-              <div class="column nested">
+            <div class="columns nested" name="nested-columns-2">
+              <div class="column nested" name="nested-left-column-2">
                 <div class="field" id="madCheat">
-                  <label class="label">Mutual Assured Destruction</label>
-                  <button class="button is-warning is-light" id="madCheatBtn">Activate</button>
+                  <label class="label">M. A. D.</label>
+                  <button class="button is-warning is-light" id="madCheatBtn" title="Enable Mutual Assured Destruction">Activate</button>
                 </div>
-              </div> <!--end nested column-->
-              <div class="column">
+              </div> <!--end nested-left-column-2-->
+              <div class="column nested" name="nested-right-column-2">
                 <div class="field" id="govCheat">
-                  <label class="label">Reduce Gov't Opposition</label>
-                  <button class="button is-warning is-light" id="govCheatBtn">Risk&trade; it</button>
+                  <label class="label">Crush foreign Gov'ts</label>
+                  <button class="button is-warning is-light" id="govCheatBtn" title="Lower foreign powers' stats">Risk&trade; it</button>
                 </div>
-              </div> <!--end nested column-->
-            </div> <!--end nested columns-->
-            <hr />
-            <div class="columns nested">
-              <div class="column nested">
+              </div> <!--end nested-right-column-2-->
+              <div class="column nested" name="nested-left-column-3">
                 <div class="field" id="swarmCheat">
-                  <label class="label">Form the Swarm</label>
+                  <label class="label">Form the Swarm (Satellites)</label>
                   <button class="button is-warning is-light" id="swarmCheatBtn">Buzz</button>
                 </div>
-              </div>
-              <div class="column nested">
+              </div> <!--end nested-left-column-3-->
+            </div> <!--end nested-columns-2-->
+            <hr />
+            <div class="columns nested" name="nested-columns-3">
+              <div class="column nested" name="nested-left-column-3">
                 <div class="field" id="coupCheat">
                   <label class="label">Overthrow the Gov't</label>
                   <div class="select">
@@ -144,12 +148,18 @@
                       <option value="federation">Federation</option>
                     </select>
                   </div>
-                  <button class="button is-warning is-light" id="coupCheatBtn">coup d'état</button>
+                  <button class="button is-warning is-light" id="coupCheatBtn">coup d'état</button>                  
                 </div>
-              </div> <!--end nested column-->
-            </div> <!--end nested columns-->            
-          </div> <!--end column-->
-        </div> <!--end columns-->
+              </div> <!--end nested-left-column-3-->
+              <div class="column nested" name="nested-right-column-3">
+                <div class="field" id="soldierCheat">
+                  <label class="label" title="Get max available soldiers">Free(dom) Fighters</label>
+                  <button class="button is-warning is-light" id="soldierCheatBtn">HOOAH!</button>
+                </div>
+              </div> <!--end nested-right-column-3-->
+            </div> <!--end nested-columns-3-->            
+          </div> <!--end main-right-column-->
+        </div> <!--end page-columns-->
       </form>
     </div> <!--end container-->
   </section>
@@ -215,7 +225,11 @@
     document.getElementById("swarmCheatBtn").addEventListener("click", function () {
         swarmCheat();
     }, false);
-  </script>
+
+    document.getElementById("soldierCheatBtn").addEventListener("click", function () {
+        garrisonCheat();
+    }, false);
+</script>
 </body>
 
 </html>
