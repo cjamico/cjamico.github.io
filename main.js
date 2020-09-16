@@ -190,6 +190,20 @@ function garrisonCheat() {
     putJSONInTextarea(jdata);
 }
 
+function godsCheat() {
+    let jdata = getTextareaAsJSON();
+    let valSel = document.getElementById("godsSelect");
+    let godsType = valSel.options[valSel.selectedIndex].value;
+
+    if (godsType === 'current') {
+        godsType = jdata.race.species;
+    }
+    jdata.race.gods = godsType;
+    jdata.race.old_gods = godsType;
+
+    putJSONInTextarea(jdata);
+}
+
 /* --------------- Helper functions -------------------- */
 function reportError(err, msg) {
     resetStatus();

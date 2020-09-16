@@ -25,7 +25,7 @@
           <div class="column" name="main-right-column">
             <div class="buttons">
               <button class="button is-danger is-light is-small" id="clearBtn">Clear All</button>
-              <button class="button is-info is-light is-small" id="allBtn" title="Doesn't change Govt type">Execute All</button>
+              <button class="button is-info is-light is-small" id="allBtn" title="Doesn't change Govt type or Gods">Execute All</button>
             </div>
             <div class="buttons">
               <button class="button" id="pasteBtn">Paste from Clipboard?</button>
@@ -84,6 +84,12 @@
                   <button class="button is-warning is-light" id="buildingCheatBtn" title="Get selected amount of buildings, if within bounds">Do it</button>
                 </div>
               </div> <!--end nested-left-column-0-->
+              <div class="column nested" name="nested-right-column-0">
+                <div class="field" id="soldierCheat">
+                  <label class="label" title="Get max available soldiers">Free(dom) Fighters</label>
+                  <button class="button is-warning is-light" id="soldierCheatBtn">HOOAH!</button>
+                </div>
+              </div> <!--end nested-right-column-0-->
             </div> <!--end nested-columns-0-->
             <hr />
             <div class="columns nested" name="nested-columns-1">
@@ -152,9 +158,17 @@
                 </div>
               </div> <!--end nested-left-column-3-->
               <div class="column nested" name="nested-right-column-3">
-                <div class="field" id="soldierCheat">
-                  <label class="label" title="Get max available soldiers">Free(dom) Fighters</label>
-                  <button class="button is-warning is-light" id="soldierCheatBtn">HOOAH!</button>
+                <div class="field" id="godsCheat">
+                  <label class="label" title="Changes gods and old gods">Worship me</label>
+                  <div class="select">
+                    <select id="godsSelect">
+                      <option value="current">Current (for any)</option>
+                      <option value="cath">Cath (for Ent)</option>
+                      <option value="sporgar">Sporgar (for Human)</option>
+                      <option value="shroomi">Shroomi (for Trolls)</option>
+                    </select>
+                  </div>
+                  <button class="button is-warning is-light" id="godsCheatBtn" title="Change the previously run species">Divine</button>                  
                 </div>
               </div> <!--end nested-right-column-3-->
             </div> <!--end nested-columns-3-->            
@@ -228,6 +242,10 @@
 
     document.getElementById("soldierCheatBtn").addEventListener("click", function () {
         garrisonCheat();
+    }, false);
+
+    document.getElementById("godsCheatBtn").addEventListener("click", function () {
+      godsCheat();
     }, false);
 </script>
 </body>
